@@ -93,7 +93,7 @@ showResults = True
 # Read input image
 #
 
-print "path of image to modify (wrapped in \"\"):"
+print("path of image to modify (wrapped in \"\"):")
 imname = input() 
 im = Image.open(imname).convert('RGB')
 im_array = np.asarray(im, dtype=np.uint8)
@@ -112,7 +112,7 @@ if os.path.isfile('fill_region.pkl') and os.path.isfile('texture_region.pkl'):
 	texture_region_file.close()
 else:
 	# ask the user to define the regions
-	print "Specify the fill and texture regions using polyselect.py"
+	print("Specify the fill and texture regions using polyselect.py")
 	exit()
 
 #
@@ -157,10 +157,10 @@ if showResults == True:
 	im1 = Image.fromarray(imHole).convert('RGB')
 	im1 = DrawBox(im1,jTextureMin,iTextureMin,jTextureMax,iTextureMax)
 	im1.show()
-	print "Are you happy with this choice of fillRegion and textureIm?"
+	print("Are you happy with this choice of fillRegion and textureIm?")
 	Yes_or_No = False
 	while not Yes_or_No:
-		answer = raw_input("Yes or No: ")
+		answer = input("Yes or No: ")
 		if answer == "Yes" or answer == "No":
 			Yes_or_No = True
 	assert answer == "Yes", "You must be happy. Please try again."
@@ -170,7 +170,7 @@ if showResults == True:
 #
 
 while (nFill > 0):
-	print "Number of pixels remaining = " , nFill
+	print("Number of pixels remaining = " , nFill)
 
 	# Set TODORegion to pixels on the boundary of the current fillRegion
 	TODORegion = Find_Edge(fillRegion)
